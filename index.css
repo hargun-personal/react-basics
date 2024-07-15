@@ -1,3 +1,50 @@
 #heading {
     color: blue;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+}
+
+.nav-items > ul {
+    display: flex;
+}
+
+.nav-items > ul > li{
+    list-style-type: none;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.search{
+    margin: 20px;
+}
+
+.restraunt-card {
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.restraunt-card:hover{
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.restraunt-logo{
+    height: 160px;
+    width: 100%;
+}
+
+.restraunt-container {
+    display: flex;
+    flex-wrap: wrap;
+}
