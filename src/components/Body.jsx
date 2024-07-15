@@ -1,13 +1,21 @@
+import { useState } from "react";
 import { resList } from "../utils/resList";
 import RestrauntCard from "./RestrauntCard";
 
 const Body = () => {
+    const [listOfRestraunts, SetListOfRestraunts] = useState(resList)
     return (
         <div className="body">
-            <div className="search">Search</div>
+            <div className="button">
+                <button className="filter-btn" onClick={() => {
+                    const filteredList = resList.filter(resraunt => resraunt.data.avgRating > 4);
+                    SetListOfRestraunts(filteredList);
+                    console.log('Filter button clicked');
+                }}>Filter</button>
+            </div>
             <div className="restraunt-container">
                 {
-                    resList.map(restraunt => 
+                    listOfRestraunts.map(restraunt => 
                         <RestrauntCard key={restraunt.data.id} resData={restraunt}/>
                     )
                 }
