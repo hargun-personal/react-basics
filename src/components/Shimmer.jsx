@@ -9,7 +9,7 @@ const Shimmer = () => {
         <div className="shimmer-container">
             {
                 Array.from({ length: 14 }).map((_, index) => (
-                    <ShimmerItem/>
+                    <ShimmerItem key={index}/>
                 ))
 
             }

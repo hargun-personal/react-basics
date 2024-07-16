@@ -5,12 +5,16 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
     const [listOfRestraunts, SetListOfRestraunts] = useState([]);
+    const [searchRestraunt, SetSearchRestraunt] = useState('');
+    const [filteredRestrauntList, SetFilteredRestrauntList] = useState([]);
 
     useEffect(() => {
         console.log('Body component mounted');
         setTimeout(() => {
             SetListOfRestraunts(resList);
+            SetFilteredRestrauntList(resList);
         }, 3000);
+        SetSearchRestraunt('');
     }, []);
 
     if(listOfRestraunts.length === 0) {
@@ -19,16 +23,30 @@ const Body = () => {
 
     return (
         <div className="body">
+            <div className="body-elements-container">
+            <div className="search">
+                <input name="search" value={searchRestraunt} onChange={(event) => {
+                    console.log('Search input changed');
+                    SetSearchRestraunt(event.target.value);
+                }} /> 
+                <button className="search-btn" onClick={()=> {
+                    const filteredList = listOfRestraunts.filter(restraunt => restraunt.data.name.toLowerCase().includes(searchRestraunt.toLowerCase()));
+                    console.log(filteredList);
+                    SetFilteredRestrauntList(filteredList);
+                }}>Search</button>
+            </div>
             <div className="button">
                 <button className="filter-btn" onClick={() => {
-                    const filteredList = resList.filter(resraunt => resraunt.data.avgRating > 4);
-                    SetListOfRestraunts(filteredList);
+                    const filteredList = listOfRestraunts.filter(resraunt => resraunt.data.avgRating > 4);
+                    SetFilteredRestrauntList(filteredList);
                     console.log('Filter button clicked');
                 }}>Filter</button>
             </div>
+            </div>
+            
             <div className="restraunt-container">
                 {
-                    listOfRestraunts.map(restraunt => 
+                    filteredRestrauntList.map(restraunt => 
                         <RestrauntCard key={restraunt.data.id} resData={restraunt}/>
                     )
                 }

@@ -25,7 +25,7 @@
 }
 
 .button{
-    margin: 20px;
+   
 }
 
 .restraunt-card {
@@ -60,4 +60,10 @@
 .shimmer-container{
     display: flex;
     flex-wrap: wrap;
+}
+
+.body-elements-container{
+    display: flex;
+    gap: 20px;
+    margin:20px;
 }
