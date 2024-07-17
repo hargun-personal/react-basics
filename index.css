@@ -84,3 +84,8 @@
     margin: 10px;
     width: 100px;
 }
+
+.user{
+    border: 2px solid black;
+    margin: 20px;
+}

@@ -1,4 +1,16 @@
+import { useEffect } from "react";
+
 const ContactUs = () => {
+    useEffect(() => {
+        const intervalId = setInterval(()=>{
+            console.log("Interval Started")
+        },1000)
+
+        return () => {
+            clearInterval(intervalId);
+            console.log("return")
+        }
+    })
     return (
         <div className="contact">
             <h1>Contact us</h1>
