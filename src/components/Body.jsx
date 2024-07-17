@@ -3,11 +3,13 @@ import { resList } from "../utils/resList";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
     const [listOfRestraunts, SetListOfRestraunts] = useState([]);
     const [searchRestraunt, SetSearchRestraunt] = useState('');
     const [filteredRestrauntList, SetFilteredRestrauntList] = useState([]);
+    const onlineStatus = useOnline();
 
     useEffect(() => {
         console.log('Body component mounted');
@@ -17,6 +19,10 @@ const Body = () => {
         }, 3000);
         SetSearchRestraunt('');
     }, []);
+
+    if(!onlineStatus) {
+        return <h1 className="offline">You are offline</h1>
+    }
 
     if(listOfRestraunts.length === 0) {
         return <Shimmer/>

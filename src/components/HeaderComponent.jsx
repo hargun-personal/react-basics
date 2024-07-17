@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const HeaderComponent = () => {
     const [btnName, setBtnName] = useState('Login');
+    const onlineStatus = useOnline();
 
     useEffect(()=> {
         console.log("Header component called");
@@ -15,6 +17,7 @@ const HeaderComponent = () => {
             </div>
             <div className="nav-items">
                 <ul>
+                    <li>Online Status : {onlineStatus ? 'Active' : 'Offline'}</li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About us</Link></li>
                     <li><Link to="/contact">Contact us</Link></li>
