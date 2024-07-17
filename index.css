@@ -14,6 +14,12 @@
     height: 150px;
 }
 
+.nav-items {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+}
+
 .nav-items > ul {
     display: flex;
 }
@@ -66,4 +72,15 @@
     display: flex;
     gap: 20px;
     margin:20px;
+}
+
+.login-btn{
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    width: 100px;
 }
