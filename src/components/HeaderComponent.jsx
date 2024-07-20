@@ -17,6 +17,7 @@ const HeaderComponent = () => {
             </div>
             <div className="">
                 <ul className="flex gap-10 text-lg font-semibold">
+                    <li><Link to="/timer">Timer</Link></li>
                     <li>Online Status : {onlineStatus ? 'Active' : 'Offline'}</li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About us</Link></li>

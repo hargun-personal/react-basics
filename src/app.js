@@ -8,6 +8,7 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Shimmer from "./components/Shimmer";
+import Timer from "./components/Timer";
 
 const Grocery  = lazy(() => import("./components/Grocery"))
 
@@ -41,6 +42,10 @@ const appRouter  = createBrowserRouter([
         {
             path: "restraunt-menu/:restrauntId",
             element: <RestrauntMenu/>
+        },
+        {
+            path: "timer",
+            element: <Timer/>
         },
         {
             path: 'grocery',
