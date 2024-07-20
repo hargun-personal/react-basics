@@ -11,23 +11,25 @@ const HeaderComponent = () => {
         console.log("Header component called");
     },[btnName])
     return (
-        <div className="header">
+        <div className="flex justify-between items-center bg-slate-300">
             <div className="logo-container">
-                <img className="logo" src={LOGO_URL}  alt="logo" />
+                <img className="w-[150]" src={LOGO_URL}  alt="logo" />
             </div>
-            <div className="nav-items">
-                <ul>
+            <div className="">
+                <ul className="flex gap-10 text-lg font-semibold">
                     <li>Online Status : {onlineStatus ? 'Active' : 'Offline'}</li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About us</Link></li>
                     <li><Link to="/contact">Contact us</Link></li>
+                    <li><Link to="/grocery">Grocery</Link></li>
                     <li>Cart</li>
+                    <li>
+                        <button className="login-btn" onClick={()=>{
+                            setBtnName((btnName) => btnName === 'Login' ? 'Logout' : 'Login')
+                            }}>{btnName}
+                        </button>
+                    </li>
                 </ul>
-                <div>
-                    <button className="login-btn" onClick={()=>{
-                        setBtnName((btnName) => btnName === 'Login' ? 'Logout' : 'Login')
-                    }}>{btnName}</button>
-                </div>
             </div>
             
         </div>

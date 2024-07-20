@@ -30,9 +30,9 @@ const Body = () => {
 
     return (
         <div className="body">
-            <div className="body-elements-container">
+            <div className="my-5">
             <div className="search">
-                <input name="search" value={searchRestraunt} onChange={(event) => {
+                <input name="search" className="border" value={searchRestraunt} onChange={(event) => {
                     console.log('Search input changed');
                     SetSearchRestraunt(event.target.value);
                 }} /> 
@@ -51,7 +51,7 @@ const Body = () => {
             </div>
             </div>
             
-            <div className="restraunt-container">
+            <div className="flex flex-wrap">
                 {
                     filteredRestrauntList.map(restraunt =>
                         <Link key={restraunt.data.id} to={`/restraunt-menu/${restraunt.data.id}`}>
